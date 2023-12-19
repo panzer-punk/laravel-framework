@@ -119,6 +119,7 @@
         "psr/simple-cache-implementation": "1.0|2.0|3.0"
     },
     "conflict": {
+        "carbonphp/carbon-doctrine-types": "<2.0.0|>=3.0.0",
         "tightenco/collect": "<5.5.33"
     },
     "autoload": {
