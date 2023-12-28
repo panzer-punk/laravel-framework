@@ -185,16 +185,16 @@ class Validator implements ValidatorContract
      * @var string[]
      */
     protected $fileRules = [
-        'Between',
-        'Dimensions',
-        'Extensions',
-        'File',
-        'Image',
-        'Max',
-        'Mimes',
-        'Mimetypes',
-        'Min',
-        'Size',
+        'Between' => true,
+        'Dimensions' => true,
+        'Extensions' => true,
+        'File' => true,
+        'Image' => true,
+        'Max' => true,
+        'Mimes' => true,
+        'Mimetypes' => true,
+        'Min' => true,
+        'Size' => true,
     ];
 
     /**
@@ -203,29 +203,29 @@ class Validator implements ValidatorContract
      * @var string[]
      */
     protected $implicitRules = [
-        'Accepted',
-        'AcceptedIf',
-        'Declined',
-        'DeclinedIf',
-        'Filled',
-        'Missing',
-        'MissingIf',
-        'MissingUnless',
-        'MissingWith',
-        'MissingWithAll',
-        'Present',
-        'PresentIf',
-        'PresentUnless',
-        'PresentWith',
-        'PresentWithAll',
-        'Required',
-        'RequiredIf',
-        'RequiredIfAccepted',
-        'RequiredUnless',
-        'RequiredWith',
-        'RequiredWithAll',
-        'RequiredWithout',
-        'RequiredWithoutAll',
+        'Accepted' => true,
+        'AcceptedIf' => true,
+        'Declined' => true,
+        'DeclinedIf' => true,
+        'Filled' => true,
+        'Missing' => true,
+        'MissingIf' => true,
+        'MissingUnless' => true,
+        'MissingWith' => true,
+        'MissingWithAll' => true,
+        'Present' => true,
+        'PresentIf' => true,
+        'PresentUnless' => true,
+        'PresentWith' => true,
+        'PresentWithAll' => true,
+        'Required' => true,
+        'RequiredIf' => true,
+        'RequiredIfAccepted' => true,
+        'RequiredUnless' => true,
+        'RequiredWith' => true,
+        'RequiredWithAll' => true,
+        'RequiredWithout' => true,
+        'RequiredWithoutAll' => true,
     ];
 
     /**
@@ -234,43 +234,43 @@ class Validator implements ValidatorContract
      * @var string[]
      */
     protected $dependentRules = [
-        'After',
-        'AfterOrEqual',
-        'Before',
-        'BeforeOrEqual',
-        'Confirmed',
-        'Different',
-        'ExcludeIf',
-        'ExcludeUnless',
-        'ExcludeWith',
-        'ExcludeWithout',
-        'Gt',
-        'Gte',
-        'Lt',
-        'Lte',
-        'AcceptedIf',
-        'DeclinedIf',
-        'RequiredIf',
-        'RequiredIfAccepted',
-        'RequiredUnless',
-        'RequiredWith',
-        'RequiredWithAll',
-        'RequiredWithout',
-        'RequiredWithoutAll',
-        'PresentIf',
-        'PresentUnless',
-        'PresentWith',
-        'PresentWithAll',
-        'Prohibited',
-        'ProhibitedIf',
-        'ProhibitedUnless',
-        'Prohibits',
-        'MissingIf',
-        'MissingUnless',
-        'MissingWith',
-        'MissingWithAll',
-        'Same',
-        'Unique',
+        'After' => true,
+        'AfterOrEqual' => true,
+        'Before' => true,
+        'BeforeOrEqual' => true,
+        'Confirmed' => true,
+        'Different' => true,
+        'ExcludeIf' => true,
+        'ExcludeUnless' => true,
+        'ExcludeWith' => true,
+        'ExcludeWithout' => true,
+        'Gt' => true,
+        'Gte' => true,
+        'Lt' => true,
+        'Lte' => true,
+        'AcceptedIf' => true,
+        'DeclinedIf' => true,
+        'RequiredIf' => true,
+        'RequiredIfAccepted' => true,
+        'RequiredUnless' => true,
+        'RequiredWith' => true,
+        'RequiredWithAll' => true,
+        'RequiredWithout' => true,
+        'RequiredWithoutAll' => true,
+        'PresentIf' => true,
+        'PresentUnless' => true,
+        'PresentWith' => true,
+        'PresentWithAll' => true,
+        'Prohibited' => true,
+        'ProhibitedIf' => true,
+        'ProhibitedUnless' => true,
+        'Prohibits' => true,
+        'MissingIf' => true,
+        'MissingUnless' => true,
+        'MissingWith' => true,
+        'MissingWithAll' => true,
+        'Same' => true,
+        'Unique' => true,
     ];
 
     /**
@@ -278,28 +278,51 @@ class Validator implements ValidatorContract
      *
      * @var string[]
      */
-    protected $excludeRules = ['Exclude', 'ExcludeIf', 'ExcludeUnless', 'ExcludeWith', 'ExcludeWithout'];
+    protected $excludeRules = [
+        'Exclude' => true,
+        'ExcludeIf' => true,
+        'ExcludeUnless' => true,
+        'ExcludeWith' => true,
+        'ExcludeWithout' => true
+    ];
 
     /**
      * The size related validation rules.
      *
      * @var string[]
      */
-    protected $sizeRules = ['Size', 'Between', 'Min', 'Max', 'Gt', 'Lt', 'Gte', 'Lte'];
+    protected $sizeRules = [
+        'Size' => true,
+        'Between' => true,
+        'Min' => true,
+        'Max' => true,
+        'Gt' => true,
+        'Lt' => true,
+        'Gte' => true,
+        'Lte' => true
+    ];
 
     /**
      * The numeric related validation rules.
      *
      * @var string[]
      */
-    protected $numericRules = ['Numeric', 'Integer', 'Decimal'];
+    protected $numericRules = [
+        'Numeric' => true,
+        'Integer' => true,
+        'Decimal' => true
+    ];
 
     /**
      * The default numeric related validation rules.
      *
      * @var string[]
      */
-    protected $defaultNumericRules = ['Numeric', 'Integer', 'Decimal'];
+    protected $defaultNumericRules = [
+        'Numeric' => true,
+        'Integer' => true,
+        'Decimal' => true
+    ];
 
     /**
      * The current placeholder for dots in rule keys.
@@ -667,7 +690,11 @@ class Validator implements ValidatorContract
      */
     protected function dependsOnOtherFields($rule)
     {
-        return in_array($rule, $this->dependentRules);
+        if (! is_string($rule)) {
+            return false;
+        }
+
+        return isset($this->dependentRules[$rule]);
     }
 
     /**
@@ -747,7 +774,7 @@ class Validator implements ValidatorContract
      */
     protected function isValidatable($rule, $attribute, $value)
     {
-        if (in_array($rule, $this->excludeRules)) {
+        if (is_string($rule) && isset($this->excludeRules[$rule])) {
             return true;
         }
 
@@ -784,7 +811,7 @@ class Validator implements ValidatorContract
     protected function isImplicit($rule)
     {
         return $rule instanceof ImplicitRule ||
-               in_array($rule, $this->implicitRules);
+                (is_string($rule) && isset($this->implicitRules[$rule]));
     }
 
     /**
@@ -902,7 +929,7 @@ class Validator implements ValidatorContract
         // as now there is no point in calling other rules with this field empty.
         return $this->hasRule($attribute, $this->implicitRules) &&
                isset($this->failedRules[$cleanedAttribute]) &&
-               array_intersect(array_keys($this->failedRules[$cleanedAttribute]), $this->implicitRules);
+               array_intersect_key($this->failedRules[$cleanedAttribute], $this->implicitRules);
     }
 
     /**
@@ -923,7 +950,7 @@ class Validator implements ValidatorContract
 
         $attribute = $this->replacePlaceholderInString($attribute);
 
-        if (in_array($rule, $this->excludeRules)) {
+        if (isset($this->excludeRules[$rule])) {
             return $this->excludeAttribute($attribute);
         }
 
@@ -1336,7 +1363,7 @@ class Validator implements ValidatorContract
     {
         $this->addExtension($rule, $extension);
 
-        $this->implicitRules[] = Str::studly($rule);
+        $this->implicitRules[Str::studly($rule)] = true;
     }
 
     /**

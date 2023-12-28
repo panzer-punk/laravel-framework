@@ -38,7 +38,7 @@ trait FormatsMessages
         $customKey = "validation.custom.{$attribute}.{$lowerRule}";
 
         $customMessage = $this->getCustomMessageFromTranslator(
-            in_array($rule, $this->sizeRules)
+            ($this->sizeRules[$rule] ?? false)
                 ? [$customKey.".{$this->getAttributeType($attribute)}", $customKey]
                 : $customKey
         );
@@ -53,7 +53,7 @@ trait FormatsMessages
         // If the rule being validated is a "size" rule, we will need to gather the
         // specific error message for the type of attribute being validated such
         // as a number, file or string which all have different message types.
-        elseif (in_array($rule, $this->sizeRules)) {
+        elseif ($this->sizeRules[$rule] ?? false) {
             return $this->getSizeMessage($attributeWithPlaceholders, $rule);
         }
 
@@ -82,7 +82,7 @@ trait FormatsMessages
     {
         $inlineEntry = $this->getFromLocalArray($attribute, Str::snake($rule));
 
-        return is_array($inlineEntry) && in_array($rule, $this->sizeRules)
+        return is_array($inlineEntry) && (is_string($rule) && isset($this->sizeRules[$rule]))
                     ? $inlineEntry[$this->getAttributeType($attribute)]
                     : $inlineEntry;
     }
@@ -266,7 +266,6 @@ trait FormatsMessages
     public function getDisplayableAttribute($attribute)
     {
         $primaryAttribute = $this->getPrimaryAttribute($attribute);
-
         $expectedAttributes = $attribute != $primaryAttribute
                     ? [$attribute, $primaryAttribute] : [$attribute];
 
