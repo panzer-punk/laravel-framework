@@ -2579,7 +2579,7 @@ trait ValidatesAttributes
     protected function shouldBeNumeric($attribute, $rule)
     {
         if (is_numeric($this->getValue($attribute))) {
-            $this->numericRules[] = $rule;
+            $this->numericRules[$rule] = true;
         }
     }
 

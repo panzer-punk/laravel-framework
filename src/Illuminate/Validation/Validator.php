@@ -822,7 +822,7 @@ class Validator implements ValidatorContract
      */
     protected function passesOptionalCheck($attribute)
     {
-        if (! $this->hasRule($attribute, ['Sometimes'])) {
+        if (! $this->hasRule($attribute, ['Sometimes' => true])) {
             return true;
         }
 
@@ -841,7 +841,7 @@ class Validator implements ValidatorContract
      */
     protected function isNotNullIfMarkedAsNullable($rule, $attribute)
     {
-        if ($this->isImplicit($rule) || ! $this->hasRule($attribute, ['Nullable'])) {
+        if ($this->isImplicit($rule) || ! $this->hasRule($attribute, ['Nullable' => true])) {
             return true;
         }
 
@@ -915,7 +915,7 @@ class Validator implements ValidatorContract
     {
         $cleanedAttribute = $this->replacePlaceholderInString($attribute);
 
-        if ($this->hasRule($attribute, ['Bail'])) {
+        if ($this->hasRule($attribute, ['Bail' => true])) {
             return $this->messages->has($cleanedAttribute);
         }
 
@@ -1093,16 +1093,20 @@ class Validator implements ValidatorContract
      */
     protected function getRule($attribute, $rules)
     {
-        if (! array_key_exists($attribute, $this->rules)) {
+        if (! isset($this->rules[$attribute])) {
             return;
         }
 
         $rules = (array) $rules;
 
+        $rules = array_is_list($rules)
+            ? array_flip($rules)
+            : $rules;
+
         foreach ($this->rules[$attribute] as $rule) {
             [$rule, $parameters] = ValidationRuleParser::parse($rule);
 
-            if (in_array($rule, $rules)) {
+            if (is_string($rule) && isset($rules[$rule])) {
                 return [$rule, $parameters];
             }
         }

@@ -215,6 +215,7 @@ trait FormatsMessages
      */
     protected function getAttributeType($attribute)
     {
+        $this->getRule($attribute, $this->numericRules);
         // We assume that the attributes present in the file array are files so that
         // means that if the attribute does not have a numeric rule and the files
         // list doesn't have it we'll just consider it a string by elimination.
